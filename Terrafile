@@ -1,6 +1,5 @@
-# -----------------------------------------------------------------------------
-traefik:
-    source: "https://github.com/traefik/traefik"
+gitlab:
+    source: "https://gitlab.com/gitlab-org/gitlab-foss"
 nats:
     source: "https://github.com/nats-io/nats-server"
 prometheus-nats-exporter:
@@ -15,3 +14,5 @@ consul:
     source: "https://github.com/hashicorp/consul"
 thanos:
     source: "https://github.com/thanos-io/thanos"
+traefik:
+    source: "https://github.com/traefik/traefik"

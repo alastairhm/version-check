@@ -8,10 +8,19 @@ import requests
 import yaml
 from yaml.loader import SafeLoader
 
-def generate_url(details):
+def generate_url_github(details):
     """Format URL for API call"""
     source = details["source"].split('/')
     api = 'https://api.github.com/repos/'+source[3]+'/'+source[4]+'/releases/latest'
+    return api
+
+def generate_url_gitlab(details):
+    """Format URL for API call"""
+    source = details["source"].split('/')
+    tail = source[3]
+    for elem in source[4:]:
+        tail = tail + '%2F' + elem
+    api = 'https://'+source[2]+'/api/v4/projects/'+tail+'/releases'
     return api
 
 
@@ -37,9 +46,15 @@ def main():
         for repo in terrafile:
             print('Repo [',repo,']', end=', ')
             details = terrafile[repo]
-            api = generate_url(details)
-            response = requests.get(api, verify=False)
-            print(response.json()['name'])
+            if 'github' in details['source']:
+                api = generate_url_github(details)
+                response = requests.get(api, verify=False)
+                print(response.json()['name'])
+            else:
+                api = generate_url_gitlab(details)
+                response = requests.get(api, verify=False)
+                print(response.json()[0]['tag_name'])
+
     else:
         print('Error : Input file not found')
         return 1
