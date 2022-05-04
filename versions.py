@@ -3,7 +3,6 @@
 
 import os
 import sys
-import json
 import argparse
 import requests
 import yaml
@@ -30,8 +29,6 @@ def main():
 
     if os.path.isfile(args.input):
         terrafile = []
-        dirty = False
-        major_changes = False
         with open(args.input, "r") as input_file:
             terrafile = list(yaml.load_all(input_file, Loader=SafeLoader))
             terrafile = terrafile[0]
