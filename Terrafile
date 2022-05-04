@@ -1,0 +1,17 @@
+# -----------------------------------------------------------------------------
+traefik:
+    source: "https://github.com/traefik/traefik"
+nats:
+    source: "https://github.com/nats-io/nats-server"
+prometheus-nats-exporter:
+    source: "https://github.com/nats-io/prometheus-nats-exporter"
+terraform:
+    source: "https://github.com/hashicorp/terraform"
+vault:
+    source: "https://github.com/hashicorp/vault"
+nomad:
+    source: "https://github.com/hashicorp/nomad"
+consul:
+    source: "https://github.com/hashicorp/consul"
+thanos:
+    source: "https://github.com/thanos-io/thanos"
