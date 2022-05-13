@@ -1,3 +1,4 @@
+---
 gitlab:
     source: "https://gitlab.com/gitlab-org/gitlab-foss"
 nats:
@@ -16,3 +17,4 @@ thanos:
     source: "https://github.com/thanos-io/thanos"
 traefik:
     source: "https://github.com/traefik/traefik"
+
